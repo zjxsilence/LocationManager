@@ -5,7 +5,7 @@
 ```
 // 定位
 [GPSManager getGPSLocation:^(CLLocationDegrees latitude, CLLocationDegrees longitude) {
-NSLog(@"纬度: %lf, 纬度: %lf", latitude, longitude);
+    NSLog(@"纬度: %lf, 纬度: %lf", latitude, longitude);
 }];
 
 // 停止定位
@@ -13,18 +13,18 @@ NSLog(@"纬度: %lf, 纬度: %lf", latitude, longitude);
 
 // 正向地理编码(根据地址名获取经纬度)
 [GPSManager getGPSLocationWithAddress:self.address ?: @"" closure:^(CLLocationDegrees latitude, CLLocationDegrees longitude) {
-NSLog(@"纬度: %lf, 纬度: %lf", latitude, longitude);
+    NSLog(@"纬度: %lf, 纬度: %lf", latitude, longitude);
 }];
 
 // 逆向地理编码(根据经纬度获取地理位置)
 [GPSManager getPlacemarkWithCoordinate2D:CLLocationCoordinate2DMake(self.lat, self.lng) closure:^(Placemark *placemark) {
-NSLog(@"地址：%@%@%@%@%@", placemark.country, placemark.province, placemark.city, placemark.county, placemark.address)
+    NSLog(@"地址：%@%@%@%@%@", placemark.country, placemark.province, placemark.city, placemark.county, placemark.address)
 }];
 
 // 单次定位(在定位回调之后结束定位即可)
 [GPSManager getGPSLocation:^(CLLocationDegrees latitude, CLLocationDegrees longitude) {            
-NSLog(@"纬度: %lf, 纬度: %lf", latitude, longitude);
-[GPSManager stop];
+    NSLog(@"纬度: %lf, 纬度: %lf", latitude, longitude);
+    [GPSManager stop];
 }];
 ```
 
